@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'img/banner.jpg'%}" style="width:100%; height:500px;">
+</div>
+<div>
+    <!--    centered heading-->
+    <center><h1 class="text-center">Our Products Range</h1>
+        <!--    description-->
+        <p class="text-justify">There are many4 variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form, by injected humour, or randomised
+            words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+            you need to be sure there isn't anything embarrassing hidden in the middle of text.
+            All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+            making this the first true generator on the Internet.</p>
+    </center>
+
+</div>
+<!--    card display of 3 no.s-->
+<div class="container" style="margin-bottom:100px;" >
+<div class="row">
+    {% for i in c %}
+        <div class="col-sm-6">
+           <div class="card" style="width: 18rem;">
+                  <img src="{{i.image.url}}" class="card-img-top" style="height:300px; width:auto;"  alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text">{{i.description}}</p>
+                    <a href="{% url 'shop:products' i.slug %}" class="btn btn-primary">More Details</a>
+                  </div>
+           </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+    <table class="table table-bordered border-dark">
+        <h1 class="text-center">Order</h1>
+        {% for i in o %}
+        <tr>
+            <th class="inv">Name of customer : {{user}}</th>
+            <th class="inv"> <img src="{{i.products.image.url}}" style="height:100px; width:100px;"> </th>
+<!--            <th class="inv">Account number : {{i.account}}</th>-->
+            <th class="inv">Phone : {{i.phone}}</th>
+            <th class="inv">Address : {{i.address}}</th>
+<!--            <th class="inv">Products : {{i.items}}</th>-->
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
